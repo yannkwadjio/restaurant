@@ -1,0 +1,32 @@
+body,html{
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(151,151,199,1) 35%, rgba(0,212,255,1) 100%);
+font-family: ubuntu,verdana,sans-serif;
+}
+
+.header__div{
+font-size: 20px;
+font-weight: bold;
+font-style: italic;
+text-align: center;
+text-shadow: 0px 0px 10px #0BF;
+position:fixed;
+}
+
+#formAjout{
+position: absolute;
+left:35%;
+top:10%;
+width: 30%;;
+}
+
+#table__restaurant{
+position: absolute;
+top:10%;
+left: 25%;
+width: 50%;
+}
+
+th,td{
+    padding:10px;
+}
