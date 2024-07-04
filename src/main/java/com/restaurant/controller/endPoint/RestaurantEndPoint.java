@@ -14,7 +14,7 @@ import java.util.Map;
 public class RestaurantEndPoint {
     private final RestaurantInterface restaurantInterface;
     @PostMapping("add")
-    public Map<String, Restaurant> addRestaurant(@RequestBody Restaurant restaurant){
+    public Map<String, String> addRestaurant(@RequestBody Restaurant restaurant){
         return restaurantInterface.addRestaurant(restaurant);
     }
 

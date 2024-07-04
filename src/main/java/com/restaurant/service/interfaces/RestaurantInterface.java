@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 public interface RestaurantInterface {
-    Map<String, Restaurant> addRestaurant(Restaurant restaurant);
+    Map<String, String> addRestaurant(Restaurant restaurant);
 
     List<Restaurant> getAllRestaurant();
 }
