@@ -13,16 +13,18 @@
     <title>Page accueil: Gestion Restaurant</title>
 </head>
 <body>
-<div class="container">
+
     <header>
         <div class="header__div">Restaurant v1.0</div>
-        <form th:action="@{/create}" method="get">
-            <button type="submit" class="btn btn-outline-primary">Nouveau restaurant</button>
-        </form>
-    </header>
-    <section>
 
-        <table class="table table-hover table-bordered table-sm" id="table__restaurant">
+        <form th:action="@{/create}" method="get" id="header__form">
+            <button type="submit" class="btn btn-outline-primary" style="font-family:italic">Nouveau restaurant</button>
+        </form>
+
+    </header>
+
+
+        <table class="table table-hover table-bordered table-lg" id="table__restaurant">
             <caption>Liste des restaurant</caption>
             <thead class="table-light">
             <tr>
@@ -32,7 +34,7 @@
                 <th>Nº`Téléphone</th>
                 <th>Heure d'ouverture</th>
                 <th>Heure de fermeture</th>
-                <th colspan="3">Action</th>
+                <th colspan="2">Action</th>
             </tr>
             </thead>
             <tbody>
@@ -43,15 +45,13 @@
                 <td th:text="${list.numeroTelephone}"></td>
                 <td th:text="${list.heuresOuverture}"></td>
                 <td th:text="${list.heuresFermeture}"></td>
-                <td><button>Ajouter</button></td>
-                <td><button>Supprimer</button></td>
+                <td><img th:src="effacer.png" alt="Supprimer"></td>
                 <td><input type="file"></td>
             </tr>
             </tbody>
         </table>
-    </section>
-    <footer></footer>
-</div>
+
+
 <script th:src="@{https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js}"></script>
 <script
         th:src="@{https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js}"

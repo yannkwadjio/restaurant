@@ -23,8 +23,8 @@ public class RestaurantService implements RestaurantInterface {
         if(existingRestaurant.isPresent()){
             resultat.put("message","Restaurant existant");
         }else{
-            //restaurantRepository.save(restaurant);
-            resultat.put("message",restaurantRepository.save(restaurant).toString());
+            restaurantRepository.save(restaurant);
+            resultat.put("message","Restaurant créé avec succès");
         }
 
         return resultat;
