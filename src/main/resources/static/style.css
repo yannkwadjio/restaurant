@@ -5,7 +5,7 @@ font-family: ubuntu,verdana,sans-serif;
 #header__form{
 position:relative;
 left:85%;
-padding-top:1px;
+padding-top:2px;
 font-style:italic;
 font-weight:bold;
 }
@@ -35,5 +35,5 @@ width: 75%;
 
 th,td{
     padding:50px;
-
+width:100px;
 }
