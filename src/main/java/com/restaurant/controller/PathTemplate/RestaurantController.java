@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.util.Map;
+
 @Controller
 @AllArgsConstructor
 public class RestaurantController {
@@ -24,12 +26,13 @@ public class RestaurantController {
     public String getPageCreate(Model model) {
         Restaurant restaurant = new Restaurant();
         model.addAttribute("restaurant", restaurant);
+        model.addAttribute("message","Compte créé");
         return "creation";
     }
 
     @PostMapping("/create")
     public String PageCreate(Model model, @ModelAttribute Restaurant restaurant) {
-        restaurantService.addRestaurant(restaurant);
+        Map<String,String> response=restaurantService.addRestaurant(restaurant);
         return "redirect:home";
     }
 }
