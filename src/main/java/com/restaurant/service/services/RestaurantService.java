@@ -34,4 +34,18 @@ public class RestaurantService implements RestaurantInterface {
     public List<Restaurant> getAllRestaurant() {
         return restaurantRepository.findAll();
     }
+
+    @Override
+    public Map<String, String> deleteRetaurantById(int id) {
+        Map<String,String> reponse=new HashMap<>();
+        Optional<Restaurant> existingRestaurant=restaurantRepository.findById(id);
+        if(existingRestaurant.isPresent()){
+            restaurantRepository.deleteById(id);
+            reponse.put("message","Restaurant supprimé avec succès");
+        }else{
+            reponse.put("message","Ce restaurant n'existe pas");
+        }
+
+        return reponse;
+    }
 }

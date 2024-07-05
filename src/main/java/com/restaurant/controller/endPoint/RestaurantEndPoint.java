@@ -22,4 +22,10 @@ public class RestaurantEndPoint {
     public List<Restaurant> getAllRestaurant(){
         return restaurantInterface.getAllRestaurant();
     }
+
+    @DeleteMapping("delete")
+    public Map<String,String> deleteRetaurantById(int id){
+        return restaurantInterface.deleteRetaurantById(id);
 }
+}
+

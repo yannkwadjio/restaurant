@@ -1,13 +1,15 @@
 package com.restaurant.controller.PathTemplate;
 
+import com.restaurant.entity.ImagesRestaurant;
 import com.restaurant.entity.Restaurant;
+import com.restaurant.repository.ImageRestaurantRpository;
+import com.restaurant.service.services.ImageRestaurantService;
 import com.restaurant.service.services.RestaurantService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.Map;
 
@@ -15,6 +17,7 @@ import java.util.Map;
 @AllArgsConstructor
 public class RestaurantController {
     private final RestaurantService restaurantService;
+    private final ImageRestaurantService imageRestaurantService;
 
     @GetMapping("/home")
     public String getPageAccueil(Model model) {
@@ -35,4 +38,31 @@ public class RestaurantController {
         Map<String,String> response=restaurantService.addRestaurant(restaurant);
         return "redirect:home";
     }
+
+
+
+    @PostMapping("/delete/{id}")
+    public String PageDelete(Model model,@PathVariable("id") int id){
+        model.addAttribute("id",id);
+        restaurantService.deleteRetaurantById(id);
+        return "redirect:/home";
+    }
+
+    @PostMapping("/upload/{idRestaurant}")
+    public String PageUpload(@PathVariable("idRestaurant") int idRestaurant, @RequestParam("file") MultipartFile file,Model model){
+        model.addAttribute("idRestaurant",idRestaurant);
+        ImagesRestaurant imagesRestaurant=new ImagesRestaurant();
+        imagesRestaurant.setIdRestaurant(idRestaurant);
+        imagesRestaurant.setTypeImage(file.getContentType());
+        imagesRestaurant.setTitreImage(file.getOriginalFilename());
+        imageRestaurantService.addImgRestaurant(file,idRestaurant);
+        return "redirect:/home";
+    }
+
+
+
 }
+
+
+
+

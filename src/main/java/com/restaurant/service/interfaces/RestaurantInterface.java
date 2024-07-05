@@ -9,4 +9,6 @@ public interface RestaurantInterface {
     Map<String, String> addRestaurant(Restaurant restaurant);
 
     List<Restaurant> getAllRestaurant();
+
+    Map<String, String> deleteRetaurantById(int id);
 }
