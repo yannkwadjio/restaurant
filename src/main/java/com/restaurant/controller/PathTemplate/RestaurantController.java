@@ -36,6 +36,7 @@ public class RestaurantController {
     @PostMapping("/create")
     public String PageCreate(Model model, @ModelAttribute Restaurant restaurant) {
         Map<String,String> response=restaurantService.addRestaurant(restaurant);
+        model.addAttribute("messageReponse",response.get("message"));
         return "redirect:home";
     }
 
