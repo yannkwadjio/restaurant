@@ -1,26 +1,28 @@
 package com.restaurant.entity;
 
+import com.restaurant.enums.Profil;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalTime;
+import java.util.Set;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Table(name = "restaurant")
+@Table(name = "utilisateur")
 @Entity
-public class Restaurant {
+public class Utilisateur {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private int id;
     private String nom;
-    private String adresse;
-    private String numeroTelephone;
-    private LocalTime heuresOuverture;
-    private LocalTime heuresFermeture;
+    private String prenom;
+    private String username;
+    private String statut;
+    private Set<Profil> profil;
+    private String password;
 }
