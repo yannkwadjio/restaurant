@@ -19,7 +19,7 @@ public class DataInitCong {
     @PostConstruct
     public void init() {
         Utilisateur utilisateur = new Utilisateur();
-        utilisateur.setUsername("admin@gmail.com");
+        utilisateur.setUsername("admin");
         utilisateur.setPassword(passwordEncoder.encode("admin"));
         utilisateur.setNom("admin");
         utilisateur.setPrenom("admin");
