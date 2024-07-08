@@ -19,6 +19,18 @@ public class RestaurantController {
     private final RestaurantService restaurantService;
     private final ImageRestaurantService imageRestaurantService;
 
+    @GetMapping("/login")
+    public String getPageLogin(Model model) {
+        model.addAttribute("listRestaurant", restaurantService.getAllRestaurant());
+        return "login";
+    }
+
+    @PostMapping("/login")
+    public String PageLogin(Model model) {
+        return "redirect:/home";
+    }
+
+
     @GetMapping("/home")
     public String getPageAccueil(Model model) {
         model.addAttribute("listRestaurant", restaurantService.getAllRestaurant());
@@ -36,6 +48,7 @@ public class RestaurantController {
     @PostMapping("/create")
     public String PageCreate(Model model, @ModelAttribute Restaurant restaurant) {
         Map<String,String> response=restaurantService.addRestaurant(restaurant);
+        model.addAttribute("messageReponse",response.get("message"));
         return "redirect:home";
     }
 

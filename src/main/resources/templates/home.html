@@ -23,49 +23,49 @@
 
     </header>
 
-<div class="container">
-    <div class="row">
-        <div class="col-12">
-    <table class="table table-hover table-bordered table-lg" id="table__restaurant">
-        <caption>Liste des restaurant</caption>
-        <thead class="table-light">
-        <tr>
-            <th>ID</th>
-            <th>Nom</th>
-            <th>Adresse</th>
-            <th>Nº`Téléphone</th>
-            <th>Heure d'ouverture</th>
-            <th>Heure de fermeture</th>
-            <th colspan="2">Action</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="list:${listRestaurant}">
-            <td th:text="${list.id}"></td>
-            <td th:text="${list.nom}"></td>
-            <td th:text="${list.adresse}"></td>list
-            <td th:text="${list.numeroTelephone}"></td>
-            <td th:text="${list.heuresOuverture}"></td>
-            <td th:text="${list.heuresFermeture}"></td>
-            <td>
-                <form th:action="@{/delete/{id}(id=${list.id})}" method="post">
-                    <button type="submit"><img src="effacer.png" alt="Supprimer"></button>
-                </form>
+    <div class="table-responsive">
+                <table class="table table-hover table-bordered caption-top" id="table__restaurant">
+                    <caption>Liste des restaurants</caption>
+                    <thead class="table-light">
+                    <tr>
+                        <th>ID</th>
+                        <th>Nom</th>
+                        <th>Adresse</th>
+                        <th>Nº`Téléphone</th>
+                        <th>Ouverture</th>
+                        <th>Fermeture</th>
+                        <th colspan="2">Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="list:${listRestaurant}">
+                        <td th:text="${list.id}"></td>
+                        <td th:text="${list.nom}"></td>
+                        <td th:text="${list.adresse}"></td>
+                        <td th:text="${list.numeroTelephone}"></td>
+                        <td th:text="${list.heuresOuverture}"></td>
+                        <td th:text="${list.heuresFermeture}"></td>
+                        <td>
+                            <form th:action="@{/delete/{id}(id=${list.id})}" method="post">
+                                <button type="submit"><img src="effacer.png" alt="Supprimer"></button>
+                            </form>
 
-            </td>
+                        </td>
 
-            <td>
-                <form th:action="@{/upload/{idRestaurant}(idRestaurant=${list.id})}" enctype="multipart/form-data" method="post">
-                    <input type="file" class="form-control" name="file">
-                    <button type="submit" class="btn btn-outline-primary">Enregistrer</button>
-                </form>
-            </td>
-        </tr>
-        </tbody>
-    </table>
-        </div>
+                        <td>
+                            <form th:action="@{/upload/{idRestaurant}(idRestaurant=${list.id})}"
+                                  enctype="multipart/form-data" method="post">
+                                <input type="file" class="form-control float-left" name="file">
+                                <button type="submit" class="btn btn-outline-primary float-left" >Enregistrer</button>
+                            </form>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+
+
+
     </div>
-</div>
 </div>
 
 <script th:src="@{https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js}"></script>

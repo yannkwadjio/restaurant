@@ -23,8 +23,13 @@ public class RestaurantService implements RestaurantInterface {
         if(existingRestaurant.isPresent()){
             resultat.put("message","Restaurant existant");
         }else{
-            restaurantRepository.save(restaurant);
-            resultat.put("message","Restaurant créé avec succès");
+            if(restaurant.getHeuresOuverture().isBefore(restaurant.getHeuresFermeture())){
+                restaurantRepository.save(restaurant);
+                resultat.put("message","Restaurant créé avec succès");
+            }else{
+                resultat.put("message","L'heure d'ouverture doit être antérieur à l'heure de fermeture");
+            }
+
         }
 
         return resultat;

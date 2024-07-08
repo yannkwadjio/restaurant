@@ -1,5 +1,14 @@
 body,html{
 font-family: ubuntu,verdana,sans-serif;
+font-size:13px;
+}
+
+#login__div__container{
+position:absolute;
+margin:0px auto;
+top:30%;
+left:30%
+width:10%;
 }
 
 #header__form{
@@ -36,4 +45,35 @@ width: 75%;
 th,td{
     padding:50px;
 width:100px;
+}
+
+.float-left {
+display:inline;
+    float: left;
+    margin-right: 10px; /* Ajoutez une marge droite pour un espacement entre les éléments */
+}
+
+.float-right {
+display:inline;
+    float: right;
+    margin-left: 10px; /* Ajoutez une marge gauche pour un espacement entre les éléments */
+}
+
+#login__div__container{
+width:30%;
+left:35%;
+}
+
+#connexion{
+position:relative;
+left:30%;
+font-weight:bold;
+font-style:italic;
+}
+
+.login__form__caption{
+position:relative;
+left:30%;
+font-weight:bold;
+font-size:20px;
 }
