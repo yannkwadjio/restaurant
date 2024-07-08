@@ -21,8 +21,8 @@ public class Utilisateur {
     private int id;
     private String nom;
     private String prenom;
-    private String username;
+    private String password;
     private String statut;
     private Set<Profil> profil;
-    private String password;
+    private String username;
 }
