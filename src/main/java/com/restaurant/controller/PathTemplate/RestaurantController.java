@@ -31,6 +31,13 @@ public class RestaurantController {
     }
 
 
+    @PostMapping("/logout")
+    public String PostPageLogout(Model model) {
+        return "redirect:/login";
+    }
+
+
+
     @GetMapping("/home")
     public String getPageAccueil(Model model) {
         model.addAttribute("listRestaurant", restaurantService.getAllRestaurant());

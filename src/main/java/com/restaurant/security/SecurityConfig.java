@@ -23,6 +23,7 @@ UtilisateurRepository utilisateurRepository;
         httpSecurity
                 .authorizeHttpRequests(authorizeHttpRequests ->
                         authorizeHttpRequests
+                                .requestMatchers("/static").permitAll()
                                 .anyRequest().authenticated())
                 .formLogin(formLogin ->
                         formLogin

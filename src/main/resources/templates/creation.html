@@ -46,6 +46,11 @@
     <div th:if="${message=='Restaurant créé avec succès'}">
       <p>Restaurant créé avec succès</p>
     </div>
+    <div class="div__deconnexion">
+      <form th:action="@{logout}" method="post">
+        <button type="submit" class="btn btn-outline-primary" style="font-style:italic">Déconnexion</button>
+      </form>
+    </div>
   </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script

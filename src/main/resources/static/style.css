@@ -77,3 +77,11 @@ left:30%;
 font-weight:bold;
 font-size:20px;
 }
+
+.div__deconnexion{
+font-style:italic;
+display:inline;
+position:absolute;
+bottom:1%;
+right:1%;
+}
