@@ -1,13 +1,13 @@
 package com.restaurant.security;
 
-import com.restaurant.enums.Profil;
-import com.restaurant.repository.UtilisateurRepository;
+import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -15,15 +15,18 @@ import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
 @EnableWebSecurity
-@RequiredArgsConstructor
+@AllArgsConstructor
 public class SecurityConfig {
-UtilisateurRepository utilisateurRepository;
+
+    private final UtilisateurDetailService userDetailsService;
+
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
         httpSecurity
                 .authorizeHttpRequests(authorizeHttpRequests ->
                         authorizeHttpRequests
-                                .requestMatchers("/static").permitAll()
+                                .requestMatchers("/static/**").permitAll()
+                                .requestMatchers("/register", "/reset-password", "documentation", "/activation").permitAll()
                                 .anyRequest().authenticated())
                 .formLogin(formLogin ->
                         formLogin
@@ -34,9 +37,21 @@ UtilisateurRepository utilisateurRepository;
                 )
 
                 .logout(logout ->
-                        logout.permitAll());
+                        logout
+                                .logoutUrl("/logout")
+                                .permitAll());
         return httpSecurity.build();
     }
+
+    @Bean
+    public UserDetailsService userDetailsService() {
+        return userDetailsService;
+    }
+
+@Autowired
+public void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth.userDetailsService(userDetailsService);
+}
 
     @Bean
     public PasswordEncoder passwordEncoder() {
