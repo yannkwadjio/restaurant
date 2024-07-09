@@ -8,6 +8,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Set;
+import java.util.UUID;
 
 @Data
 @AllArgsConstructor
@@ -22,7 +23,10 @@ public class Utilisateur {
     private String nom;
     private String prenom;
     private String password;
+    private String passwordConfirmation;
     private String statut;
+    private UUID activationCode;
     private Set<Profil> profil;
     private String username;
+    private boolean isActivated;
 }

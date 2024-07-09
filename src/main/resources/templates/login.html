@@ -9,35 +9,84 @@
             integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
             crossorigin="anonymous"
     />
-    <link rel="stylesheet" th:href="@{style.css}" />
+    <link rel="stylesheet" th:href="@{style.css}"/>
 </head>
 <body style="background-color: #8BC6EC; background-image: linear-gradient(135deg, #8BC6EC 0%, #9599E2 100%);">
-<div class="container">
-<div class="header__div">Restaurant v1.0</div>
+<header>
+    <div class="header__div">Restaurant v1.0</div>
 
-<div class="container" id="login__div__container">
-    <div class="row">
-   <div col="4"></div>
-        <div col="4">
-<form th:action="@{/login}" method="post" class="form-control p-5 rounded" id="form__login">
-    <caption class="login__form__caption">Connexion</caption>
-    <div class="form-floating mb-3 p-2">
-        <input type="email" class="form-control" id="username" name="username" placeholder="username" required>
-        <label for="username">Adress mail</label>
-    </div>
-    <div class="form-floating mb-3 p-2">
-        <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
-        <label for="password">Password</label>
-    </div>
-    <div class="form-floating mb-3 p-2">
-        <button class="btn btn-primary" type="submit" id="connexion">Se Connecter</button>
-    </div>
-</form>
+
+</header>
+<div class="container-fluid">
+
+
+    <div class="container" id="login__div__container">
+        <div class="row">
+            <div col="5"></div>
+            <div col="2">
+                <form th:action="@{/login}" method="post" class="form-control p-1 rounded" id="form__login">
+                    <div class="row">
+                        <div class="col-5"></div>
+                        <div class="col-2">
+                            <caption class="login__form__caption">Connexion</caption>
+                        </div>
+                        <div class="col-5"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4"></div>
+                        <div class="col-4">
+                            <div class="form-floating mb-1 p-1">
+                                <input type="email" class="form-control" id="username" name="username"
+                                       placeholder="username" required>
+                                <label for="username">Adresse mail</label>
+                            </div>
+                        </div>
+                        <div class="col-4"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4"></div>
+                        <div class="col-4">
+                            <div class="form-floating mb-1 p-1">
+                                <input type="password" class="form-control" id="password" name="password"
+                                       placeholder="Password" required>
+                                <label for="password">Password</label>
+                            </div>
+                        </div>
+                        <div class="col-4"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-5"></div>
+                        <div class="col-2">
+                            <div class="form-floating mb-1 p-1">
+                                <button class="btn btn-primary" type="submit" id="connexion">Se Connecter</button>
+                            </div>
+                        </div>
+                        <div class="col-5"></div>
+                    </div>
+
+
+                </form>
+
+            </div>
+
+            <div col="5"></div>
         </div>
-        <div col="4"></div>
-    </div>
-</div>
+        <div class="row">
+            <div col="4"></div>
+            <div class="col-1">
+                <form th:action="@{/register}" method="get">
+                    <button type="submit" class="btn btn-outline-primary">Nouveau compte</button>
+                </form>
+            </div>
+            <div class="col-2">
 
+            </div>
+            <div class="col-1">
+                <a th:href="@{/reset-password}">Mot de passe oublié</a>
+            </div>
+            <div col="4"></div>
+        </div>
+    </div>
 
 </div>
 <script th:src="@{https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js}"></script>

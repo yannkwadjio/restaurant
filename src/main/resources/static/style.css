@@ -1,87 +1,94 @@
-body,html{
-font-family: ubuntu,verdana,sans-serif;
-font-size:13px;
+body, html {
+    font-family: ubuntu, verdana, sans-serif;
+    font-size: 13px;
+    margin: 0;
+    padding: 0;
+    height: 100%;
 }
 
-#login__div__container{
-position:absolute;
-margin:0px auto;
-top:30%;
-left:30%
-width:10%;
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
-#header__form{
-position:relative;
-left:85%;
-padding-top:2px;
-font-style:italic;
-font-weight:bold;
+.container-fluid {
+    flex: 1; /* Prendre tout l'espace disponible */
 }
 
-.header__div{
-font-size: 20px;
-font-weight: bold;
-font-style: italic;
-text-align: center;
-text-shadow: 0px 0px 10px #0BF;
-position:fixed;
+#login__div__container {
+    position: absolute;
+    top: 30%;
+    left: 30%;
+    width: 10%;
 }
 
-#formAjout{
-position: absolute;
-left:35%;
-top:10%;
-width: 30%;;
+#form__login {
+    width: 10%;
 }
 
-#table__restaurant{
-position: absolute;
-top:10%;
-left:10%;
-width: 75%;
+#header__form {
+    position: absolute;
+    top: 1%;
+    right: 1%;
+    padding-top: 2px;
+    font-style: italic;
+    font-weight: bold;
 }
 
-th,td{
-    padding:50px;
-width:100px;
+#username, #password {
+    width: 5%;
 }
 
-.float-left {
-display:inline;
-    float: left;
-    margin-right: 10px; /* Ajoutez une marge droite pour un espacement entre les éléments */
+
+.header__div {
+    font-size: 20px;
+    font-weight: bold;
+    font-style: italic;
+    text-align: center;
+    text-shadow: 0px 0px 10px #0BF;
+    position: fixed;
 }
 
-.float-right {
-display:inline;
-    float: right;
-    margin-left: 10px; /* Ajoutez une marge gauche pour un espacement entre les éléments */
+#formAjout {
+    position: absolute;
+    left: 35%;
+    top: 10%;
+    width: 30%;;
 }
 
-#login__div__container{
-width:30%;
-left:35%;
+#table__restaurant {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    width: 75%;
 }
 
-#connexion{
-position:relative;
-left:30%;
-font-weight:bold;
-font-style:italic;
+th, td {
+    padding: 50px;
+    width: 100px;
 }
 
-.login__form__caption{
-position:relative;
-left:30%;
-font-weight:bold;
-font-size:20px;
+
+#connexion {
+    position: relative;
+    left: 30%;
+    font-weight: bold;
+    font-style: italic;
 }
 
-.div__deconnexion{
-font-style:italic;
-display:inline;
-position:absolute;
-bottom:1%;
-right:1%;
+.login__form__caption {
+    position: relative;
+    left: 30%;
+    font-weight: bold;
+    font-size: 20px;
+    font-style: italic;
+}
+
+.div__deconnexion {
+    font-style: italic;
+    display: inline;
+    position: absolute;
+    bottom: 1%;
+    right: 1%;
 }
