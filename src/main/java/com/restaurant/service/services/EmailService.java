@@ -21,6 +21,14 @@ public class EmailService implements EmailInterface {
        message.setFrom("kwadjionry@gmail.com");
        mailSender.send(message);
     }
-
+    public void sendEmailPassword(Utilisateur utilisateur) {
+        String resetLink="http://localhost:8080/reset-password/"+ utilisateur.getPasswordCodeReset();
+        SimpleMailMessage message=new SimpleMailMessage();
+        message.setTo(utilisateur.getUsername());
+        message.setSubject("Réinitialisation mot de asse");
+        message.setText("Veuillez cliquer pour réinitialiser le mont de passe: "+resetLink);
+        message.setFrom("kwadjionry@gmail.com");
+        mailSender.send(message);
+    }
 
 }
