@@ -10,84 +10,88 @@
             crossorigin="anonymous"
     />
     <link rel="stylesheet" th:href="@{style.css}"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #8BC6EC;
+            background-image: linear-gradient(135deg, #8BC6EC 0%, #9599E2 100%);
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+        .header__div {
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .login__form__caption {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        #form__login {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            background: white;
+        }
+        .form-control {
+            border-radius: 5px;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border: none;
+            transition: background-color 0.3s;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+        .btn-outline-primary {
+            transition: color 0.3s, border-color 0.3s;
+        }
+        .btn-outline-primary:hover {
+            color: white;
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+    </style>
 </head>
-<body style="background-color: #8BC6EC; background-image: linear-gradient(135deg, #8BC6EC 0%, #9599E2 100%);">
+<body>
 <header>
     <div class="header__div">Restaurant v1.0</div>
-
-
 </header>
-<div class="container-fluid">
-
-
-    <div class="container" id="login__div__container">
-        <div class="row">
-            <div col="5"></div>
-            <div col="2">
-                <form th:action="@{/login}" method="post" class="form-control p-1 rounded" id="form__login">
-                    <div class="row">
-                        <div class="col-5"></div>
-                        <div class="col-2">
-                            <caption class="login__form__caption">Connexion</caption>
-                        </div>
-                        <div class="col-5"></div>
-                    </div>
-                    <div class="row">
-                        <div class="col-4"></div>
-                        <div class="col-4">
-                            <div class="form-floating mb-1 p-1">
-                                <input type="email" class="form-control" id="username" name="username"
-                                       placeholder="username" required>
-                                <label for="username">Adresse mail</label>
-                            </div>
-                        </div>
-                        <div class="col-4"></div>
-                    </div>
-                    <div class="row">
-                        <div class="col-4"></div>
-                        <div class="col-4">
-                            <div class="form-floating mb-1 p-1">
-                                <input type="password" class="form-control" id="password" name="password"
-                                       placeholder="Password" required>
-                                <label for="password">Password</label>
-                            </div>
-                        </div>
-                        <div class="col-4"></div>
-                    </div>
-                    <div class="row">
-                        <div class="col-5"></div>
-                        <div class="col-2">
-                            <div class="form-floating mb-1 p-1">
-                                <button class="btn btn-primary" type="submit" id="connexion">Se Connecter</button>
-                            </div>
-                        </div>
-                        <div class="col-5"></div>
-                    </div>
-
-
-                </form>
-
+<div class="container">
+    <div class="row justify-content-center align-items-center vh-100">
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="text-center mb-4">
+                <img th:src="logo.png" alt="Logo" class="mb-3" style="width: 50px;">
+                <h2 class="login__form__caption">Connexion</h2>
             </div>
-
-            <div col="5"></div>
-        </div>
-        <div class="row">
-            <div col="4"></div>
-            <div class="col-1">
-                <form th:action="@{/register}" method="get">
+            <form th:action="@{/login}" method="post" class="form-control p-4 rounded" id="form__login">
+                <div class="form-floating mb-3">
+                    <input type="email" class="form-control" id="username" name="username"
+                           placeholder="username" required>
+                    <label for="username">Adresse mail</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="password" class="form-control" id="password" name="password"
+                           placeholder="Password" required>
+                    <label for="password">Password</label>
+                </div>
+                <div class="d-grid">
+                    <button class="btn btn-primary" type="submit" id="connexion">Se Connecter</button>
+                </div>
+            </form>
+            <div class="text-center mt-3">
+                <form th:action="@{/register}" method="get" class="d-inline">
                     <button type="submit" class="btn btn-outline-primary">Nouveau compte</button>
                 </form>
+                <a th:href="@{/reset-password}" class="d-block mt-2">Mot de passe oublié</a>
             </div>
-            <div class="col-2">
-
-            </div>
-            <div class="col-1">
-                <a th:href="@{/reset-password}">Mot de passe oublié</a>
-            </div>
-            <div col="4"></div>
         </div>
     </div>
-
 </div>
 <script th:src="@{https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js}"></script>
 <script

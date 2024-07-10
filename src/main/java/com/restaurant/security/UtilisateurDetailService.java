@@ -4,6 +4,7 @@ import com.restaurant.entity.Utilisateur;
 import com.restaurant.enums.Profil;
 import com.restaurant.repository.UtilisateurRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.authentication.DisabledException;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -24,6 +25,10 @@ private final UtilisateurRepository utilisateurRepository;
         Utilisateur utilisateur=utilisateurRepository.findByUsername(username);
         if(utilisateur==null){
             throw new UsernameNotFoundException("Utilisateur introuvable");
+        }
+
+        if(!utilisateur.isActivated()){
+            throw new DisabledException("Utilisateur non activé");
         }
 
         return new User(utilisateur.getUsername(),utilisateur.getPassword(),

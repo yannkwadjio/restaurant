@@ -3,8 +3,10 @@ package com.restaurant.controller.PathTemplate;
 import com.restaurant.entity.ImagesRestaurant;
 import com.restaurant.entity.Restaurant;
 import com.restaurant.entity.Utilisateur;
+import com.restaurant.service.services.EmailService;
 import com.restaurant.service.services.ImageRestaurantService;
 import com.restaurant.service.services.RestaurantService;
+import com.restaurant.service.services.UtilisateurService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,9 +17,10 @@ import java.util.Map;
 
 @Controller
 @AllArgsConstructor
-public class RestaurantController {
+public class RestaurantView {
     private final RestaurantService restaurantService;
     private final ImageRestaurantService imageRestaurantService;
+
 
     @GetMapping("/login")
     public String getPageLogin(Model model) {
@@ -44,26 +47,6 @@ public class RestaurantController {
         return "home";
     }
 
-    @GetMapping("/register")
-    public String getPageRegister(Model model, @ModelAttribute Utilisateur utilisateur) {
-        model.addAttribute("utilisateur", utilisateur);
-        return "register";
-    }
-
-    @PostMapping("/register")
-    public String getPageRegister(Model model) {
-      return "redirect:/register";
-    }
-
-    @GetMapping("/reset-password")
-    public String getPageResetPassword(Model model) {
-        return "reset_password";
-    }
-
-    @GetMapping("/activation")
-    public String getPageActivation(Model model) {
-        return "activation";
-    }
 
     @GetMapping("/create")
     public String getPageCreate(Model model) {

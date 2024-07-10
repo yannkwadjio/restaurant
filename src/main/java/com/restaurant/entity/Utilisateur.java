@@ -24,9 +24,10 @@ public class Utilisateur {
     private String prenom;
     private String password;
     private String passwordConfirmation;
-    private String statut;
+    private UUID passwordCodeReset;
     private UUID activationCode;
     private Set<Profil> profil;
+    @Column(unique = true)
     private String username;
     private boolean isActivated;
 }
